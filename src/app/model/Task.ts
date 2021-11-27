@@ -5,9 +5,3 @@ export interface Task {
     reminder: boolean;
 }
 
-export interface Todo   {
-    userId : number,
-    id: number,
-    title : string,
-    completed : boolean
-}

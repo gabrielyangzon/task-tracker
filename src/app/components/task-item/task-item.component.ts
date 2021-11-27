@@ -12,6 +12,7 @@ export class TaskItemComponent implements OnInit {
 
   @Input() task: Task 
   @Output() onDeleteClick = new EventEmitter();
+  @Output() onDoubleClick = new EventEmitter();
 
   faTimes = faTimes;
 
@@ -21,8 +22,11 @@ export class TaskItemComponent implements OnInit {
   }
 
   onDeleteClickHandler(taskItem:Task){
-    
     this.onDeleteClick.emit(taskItem);
+  }
+
+  onDoubleClickHandler(taskItem: Task){
+    this.onDoubleClick.emit(taskItem);
   }
 
 }

@@ -14,11 +14,23 @@ export class TasksComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    
+
   }
 
-  deleteTask(){
-    console.log("ee")
+  toggleTask(taskItem : Task){
+
+    const taskIndex = this.Tasks.findIndex(c => c.id === taskItem.id)
+
+    this.Tasks[taskIndex].reminder = !this.Tasks[taskIndex].reminder
+  }
+
+  deleteTask(taskItem : Task){
+    this.Tasks = this.Tasks.filter(task => task.id !== taskItem.id)
+  }
+
+  addTask(taskItem : Task){
+    
+    this.Tasks.push(taskItem)
   }
 
 }
