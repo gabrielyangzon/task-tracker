@@ -3,11 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from "@angular/common";
 import { AppRoutingModule } from './app-routing.module';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
+import { SweetAlert2Module} from '@sweetalert2/ngx-sweetalert2'; 
+
 import { AppComponent } from './app.component';
 
 
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 import { HeaderComponent } from './components/header/header.component';
 import { ButtonComponent } from './components/button/button.component';
 import { TasksComponent } from './components/tasks/tasks.component';
@@ -34,7 +37,8 @@ import { NgbModule ,NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
     FontAwesomeModule,
     FormsModule,
     NgbModule,
-    NgbTimepickerModule
+    NgbTimepickerModule,
+    SweetAlert2Module.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

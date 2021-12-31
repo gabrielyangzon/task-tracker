@@ -33,4 +33,8 @@ export class TasksComponent implements OnInit {
     this.Tasks.push(taskItem)
   }
 
+  onDismiss(){
+    
+  }
+
 }

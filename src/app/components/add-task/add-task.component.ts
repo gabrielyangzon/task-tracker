@@ -12,8 +12,8 @@ import { Subscription } from 'rxjs';
 })
 export class AddTaskComponent implements OnInit {
 
-  time:NgbTimeStruct;
-  modelDate : NgbDateStruct;
+  time: NgbTimeStruct;
+  modelDate :  NgbDateStruct;
   meridian:boolean = true;
   text : string;
   reminder:boolean
@@ -47,10 +47,14 @@ export class AddTaskComponent implements OnInit {
 
    this.text = ""
    this.reminder = false;
-  //  this.modelDate
-  //  this.time
+   this.modelDate = {year:0 ,month:0 ,day: 0};
+   this.time = {hour :0 ,minute : 0, second: 0};
 
     this.onAddTask.emit(newTask)
+  }
+
+  onDismiss(){
+    
   }
 
   

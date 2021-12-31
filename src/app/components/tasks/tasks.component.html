@@ -6,8 +6,9 @@
 <app-task-item 
     *ngFor="let task of Tasks" 
     [task]="task"
-    (onDeleteClick)="deleteTask(task)"
     (onDoubleClick)="toggleTask(task)"
-    >
-    
+    [swal]="{title: 'Delete this task?' , showCancelButton: true , icon: 'warning'}"
+    (onDeleteClick)="deleteTask(task)"
+    (dismiss)="onDismiss()" 
+    >  
 </app-task-item>
