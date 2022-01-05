@@ -1,7 +1,7 @@
 import { Component, OnInit ,Input ,Output, EventEmitter} from '@angular/core';
 import {Task} from '../../model/Task';
 
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faTimes ,faEdit} from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-task-item',
@@ -13,8 +13,10 @@ export class TaskItemComponent implements OnInit {
   @Input() task: Task 
   @Output() onDeleteClick = new EventEmitter();
   @Output() onDoubleClick = new EventEmitter();
+  @Output() onEditClick = new EventEmitter();
 
   faTimes = faTimes;
+  faEdit = faEdit;
 
   constructor() { }
 
@@ -27,6 +29,10 @@ export class TaskItemComponent implements OnInit {
 
   onDoubleClickHandler(taskItem: Task){
     this.onDoubleClick.emit(taskItem);
+  }
+
+  onEditClickHandler(taskItem : Task){
+    this.onEditClick.emit(taskItem)
   }
 
 }

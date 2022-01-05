@@ -17,7 +17,8 @@ import { TasksComponent } from './components/tasks/tasks.component';
 import { TaskItemComponent } from './components/task-item/task-item.component';
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import { InputComponent } from './components/input/input.component';
-import { NgbModule ,NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule ,NgbTimepickerModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { NgbModule ,NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
     TaskItemComponent,
     AddTaskComponent,
     InputComponent,
+    ModalComponent,
    
   ],
   imports: [
@@ -38,6 +40,7 @@ import { NgbModule ,NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     NgbModule,
     NgbTimepickerModule,
+    NgbModalModule,
     SweetAlert2Module.forRoot()
   ],
   providers: [],
