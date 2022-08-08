@@ -4,10 +4,10 @@
 
 <h3>Your Tasks</h3>
 <app-task-item 
-    *ngFor="let task of Tasks" 
+    *ngFor="let task of data" 
     [task]="task"
     (onDoubleClick)="toggleTask(task)"
-    (onDeleteClick)="deleteTask(task)"
+    (onDeleteClick)="deleteTask(task.id)"
     (onEditClick)="editTask(task)"
     (dismiss)="onDismiss()" >  
     <!-- swal]="{title: 'Delete this task?' , showCancelButton: true , icon: 'warning'}" -->

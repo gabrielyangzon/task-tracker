@@ -1,69 +1,48 @@
-import { Component, OnInit } from '@angular/core';
-import {TASKS} from '../../mock-task'
-import {Task} from '../../model/Task'
-import Swal from 'sweetalert2';
+import { Component, OnChanges  , Input, Output ,EventEmitter } from '@angular/core';
+
+import { Task } from '../../model/Task';
 
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
   styleUrls: ['./tasks.component.css']
 })
-export class TasksComponent implements OnInit {
+export class TasksComponent implements OnChanges  {
 
-  Tasks : Task[] = TASKS
+  @Input() data : Task[];
+
+  @Output() addT = new EventEmitter()
+  @Output() toggleT = new EventEmitter()
+  @Output() deleteT = new EventEmitter()
+  @Output() editT = new EventEmitter()
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnChanges(): void {
 
   }
+
 
   toggleTask(taskItem : Task){
-
-    const taskIndex = this.Tasks.findIndex(c => c.id === taskItem.id)
-
-    this.Tasks[taskIndex].reminder = !this.Tasks[taskIndex].reminder
+    this.toggleT.emit(taskItem)
   }
 
-  deleteTask(taskItem : Task){
-   
-      Swal.fire({  
-        title: 'Are you sure want to remove this task?',  
-        text: 'You will not be able to recover this task!',  
-        icon: 'warning',  
-        showCancelButton: true,  
-        confirmButtonText: 'Yes, delete it!',  
-        cancelButtonText: 'No, keep it'  
-      }).then((result) => {  
-  
-          if (result.value) {  
-            this.Tasks = this.Tasks.filter(task => task.id !== taskItem.id)
+   deleteTask(taskId? : string){
+    this.deleteT.emit(taskId)
+   }
 
-            Swal.fire(  
-              'Deleted!',  
-              'Task deleted',  
-              'success'  
-            )  
-          } 
-      })  
-
+   addTask(taskItem : Task){ 
+      this.addT.emit(taskItem)
   }
 
-  addTask(taskItem : Task){
-    
-    this.Tasks.push(taskItem)
-  }
-
-  editTask(taskItem: Task){
-
-    let i = this.Tasks.findIndex(tsk => tsk.id === taskItem.id)
-
-    this.Tasks[i] = {...taskItem , text:"test"}
+  editTask(taskItem : Task){
+     this.editT.emit(taskItem)
   }
 
   onDismiss(){
-    
+
   }
+
 
 
 

@@ -19,7 +19,10 @@ import { AddTaskComponent } from './components/add-task/add-task.component';
 import { InputComponent } from './components/input/input.component';
 import { NgbModule ,NgbTimepickerModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from './components/modal/modal.component';
+import { MainComponent } from './pages/main/main.component';
+import { StoreModule } from '@ngrx/store';
 
+import  { taskReducer } from '../app/state/task.reducer'
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +33,7 @@ import { ModalComponent } from './components/modal/modal.component';
     AddTaskComponent,
     InputComponent,
     ModalComponent,
+    MainComponent,
    
   ],
   imports: [
@@ -41,7 +45,10 @@ import { ModalComponent } from './components/modal/modal.component';
     NgbModule,
     NgbTimepickerModule,
     NgbModalModule,
-    SweetAlert2Module.forRoot()
+    SweetAlert2Module.forRoot(),
+    StoreModule.forRoot({
+        tasks : taskReducer
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

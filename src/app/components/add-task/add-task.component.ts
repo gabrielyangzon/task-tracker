@@ -5,6 +5,7 @@ import {Task} from '../../model/Task'
 import { UiService } from 'src/app/services/ui.service';
 import { Subscription } from 'rxjs';
 
+import { createGuid } from '../../util/util'
 @Component({
   selector: 'app-add-task',
   templateUrl: './add-task.component.html',
@@ -38,6 +39,7 @@ export class AddTaskComponent implements OnInit {
     const t = this.time.minute > 10 ? "" : "0"
 
     const newTask : Task = {
+        id: createGuid(),
         text : this.text,
         reminder : this.reminder,
         day : `${this.modelDate.year}-${this.modelDate.month}-${this.modelDate.day}  at ${this.time.hour}:${t}${this.time.minute}${m}`

@@ -1,0 +1,11 @@
+
+<div class="container">
+    <app-header></app-header>
+    <app-tasks 
+        [data]="this.Tasks" 
+        (addT)="addTask($event)"
+        (toggleT)="toggleTask($event)"
+        (deleteT)="deleteTask($event)"
+        (editT)="editTask($event)"
+    ></app-tasks>
+</div>

@@ -23,8 +23,8 @@ export class TaskItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onDeleteClickHandler(taskItem:Task){
-    this.onDeleteClick.emit(taskItem);
+  onDeleteClickHandler(taskId? : string){
+    this.onDeleteClick.emit(taskId);
   }
 
   onDoubleClickHandler(taskItem: Task){
